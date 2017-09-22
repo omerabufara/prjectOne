@@ -14,7 +14,7 @@ class CreateCustomersTable extends Migration
     public function up()
     {
             $table->increments('id');
-            $table->integer('nationalId')->unique();
+            $table->string('nationalId')->unique();
             $table->string('issueCity');
             $table->string('idType');
             $table->string('phone');
