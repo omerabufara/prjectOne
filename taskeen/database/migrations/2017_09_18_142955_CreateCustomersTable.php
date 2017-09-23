@@ -13,15 +13,17 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
+        Schema::create('customers', function (Blueprint $table){
             $table->increments('id');
             $table->integer('nationalId')->unique();
             $table->string('issueCity');
             $table->string('idType');
             $table->string('phone');
             $table->string('email');
-            $table->string('email');
             $table->rememberToken();
-            $table->timestamps();    }
+            $table->timestamps();    
+        });
+    }
 
     /**
      * Reverse the migrations.

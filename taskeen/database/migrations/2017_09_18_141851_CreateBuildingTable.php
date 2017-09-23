@@ -26,10 +26,7 @@ class CreateBuildingTable extends Migration
         });    
 
 
-        Schema::table('bulidings', function($table) {
-
-            $table->foreign('user_id')->references('id')->on('usesrs');
-        });
+        
 
 
     }
