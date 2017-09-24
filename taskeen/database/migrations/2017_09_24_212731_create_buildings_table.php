@@ -24,6 +24,13 @@ class CreateBuildingsTable extends Migration
             $table->timestamps();
 
         });
+
+        Schema::table('buildings', function($table) {
+
+            $table->foreign('user_id')->references('id')->on('users');
+            
+
+        });
     }
 
     /**

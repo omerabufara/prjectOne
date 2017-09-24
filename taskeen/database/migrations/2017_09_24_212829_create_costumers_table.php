@@ -17,7 +17,7 @@ class CreateCostumersTable extends Migration
 
             $table->increments('id');
             $table->string('nationalId')->unique();
-            $table->integer('buildings_id')->unsigned();
+            $table->integer('building_id')->unsigned();
             $table->integer('unit_id')->unsigned();
             $table->string('issueCity');
             $table->string('idType');
@@ -25,6 +25,18 @@ class CreateCostumersTable extends Migration
             $table->string('email');
             $table->rememberToken();
             $table->timestamps();
+
+        });
+
+        Schema::table('costumers', function($table) {
+
+            $table->foreign('building_id')->references('id')->on('buildings');
+
+        });
+
+        Schema::table('costumers', function($table) {
+
+            $table->foreign('unit_id')->references('id')->on('units');
 
         });
 

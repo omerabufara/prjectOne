@@ -18,7 +18,7 @@ class CreateUnitsTable extends Migration
 
             $table->increments('id');
             $table->string('name')->unique();
-            $table->integer('buildings_id')->unsigned();
+            $table->integer('building_id')->unsigned();
             $table->string('floor');
             $table->integer('rooms-num');
             $table->integer('bathrooms-num');
@@ -32,6 +32,12 @@ class CreateUnitsTable extends Migration
             $table->integer('price');
             $table->rememberToken();
             $table->timestamps();
+
+        });
+
+        Schema::table('units', function($table) {
+
+            $table->foreign('building_id')->references('id')->on('buildings');
 
         });
     }
